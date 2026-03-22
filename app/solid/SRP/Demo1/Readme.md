@@ -1,1 +1,0 @@
-Clase que gestiona usuarios, base de datos y envío de correos

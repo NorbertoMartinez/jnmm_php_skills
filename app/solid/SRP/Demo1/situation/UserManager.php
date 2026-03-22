@@ -24,11 +24,23 @@ class UserManager {
         $this->sendWelcomeEmail($email);
     }
 
+
+    /**
+     *
+     * RESPONSABILIDAD:
+     * Validación
+     *
+     */
     private function validateEmail($email)
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
 
+    /**
+     *
+     * Responsability:
+     * Persistencia
+     */
     private function saveToDatabase($user)
     {
         $pdo = new PDO("mysql:host=localhost;dbname=test", "root", "");
@@ -40,6 +52,10 @@ class UserManager {
         $stmt->execute($user);
     }
 
+    /**
+     * Responsability:
+     * Comunicación
+     */
     private function sendWelcomeEmail($email)
     {
         mail($email, "Bienvenido", "Gracias por registrarte");
